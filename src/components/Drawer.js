@@ -1,4 +1,5 @@
-function Drawer({ onClose, items = [] }) {
+function Drawer({ onClose, items = [], onRemoveItem }) {
+  const totalCash = items.reduce((acc, curr) => acc + curr.price, 0);
   return (
     <div className="overlay">
       <div className="drawer">
@@ -15,7 +16,7 @@ function Drawer({ onClose, items = [] }) {
         </h2>
         <div className="items">
           {items.map((obj) => (
-            <div className="cartItem d-flex align-center mb-20">
+            <div className="cartItem d-flex align-center mb-20" key={obj.id}>
               <div
                 style={{ backgroundImage: `url(${obj.imageUrl})` }}
                 className="cartItemImg"
@@ -25,6 +26,7 @@ function Drawer({ onClose, items = [] }) {
                 <b>{obj.price}$</b>
               </div>
               <img
+                onClick={() => onRemoveItem(obj.id)}
                 className="removeBtn"
                 width={27}
                 height={27}
@@ -39,7 +41,7 @@ function Drawer({ onClose, items = [] }) {
             <li className="d-flex">
               <span>Total:</span>
               <div></div>
-              <b>500$</b>
+              <b>{totalCash}$</b>
             </li>
             <li className="d-flex">
               <span>Tax:</span>
