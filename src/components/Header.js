@@ -5,7 +5,7 @@ function Header(props) {
   const { totalCash } = useCart();
   return (
     <header className="d-flex justify-between align-center p-40">
-      <Link to="">
+      <Link to="/">
         <div className="d-flex align-center">
           <img width={40} height={40} src="img/logo.png" alt={123} />
           <div className="headerInfo">
@@ -20,7 +20,7 @@ function Header(props) {
           <span>{totalCash}$</span>
         </li>
         <li className="mr-30 cu-p">
-          <Link to="favorites">
+          <Link to="/favorites">
             <img
               src={
                 props.onFavorites.length
@@ -32,7 +32,7 @@ function Header(props) {
           </Link>
         </li>
         <li>
-          <Link to="orders">
+          <Link to="/orders">
             <img src="img/user.svg" alt="user" />
           </Link>
         </li>
