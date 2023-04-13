@@ -1,12 +1,36 @@
 import Card from "../components/Card";
+
 function Home({
   items,
   searchValue,
   setSearchValue,
   onChangeSerchInput,
-  onAddToCart,
-  onFavorite
+  onFavorite,
+  favorites,
+  isLoading
 }) {
+  console.log(items);
+  const renderItems = () => {
+
+    const filtredItems = items
+      .filter((items) =>
+        items.title.toLowerCase().includes(searchValue.toLowerCase())
+      )
+    return (isLoading ? ([...Array(8)].map(() => (
+      <Card
+        loading={isLoading}
+      />
+    ))) : (filtredItems.map((item) => (
+      <Card
+        key={item.parent_id}
+        {...item}
+        loading={isLoading}
+        addedFavorited={favorites.some(obj => Number(obj.parent_id) === Number(items.parent_id))}
+        onFavorite={(obj) => onFavorite(obj)}
+      />
+    ))));
+  };
+
   return (
     <div className="content p-40">
       <div className="d-flex align-center mb-40 justify-between">
@@ -33,20 +57,7 @@ function Home({
         </div>
       </div>
       <div className="d-flex flex-wrap">
-        {items
-          .filter((items) =>
-            items.title.toLowerCase().includes(searchValue.toLowerCase())
-          )
-          .map((items) => (
-            <Card
-              key={items.id}
-              { ...items}
-              onFavorite={(obj) => onFavorite(obj) }
-              onPlus={(obj) => {
-                onAddToCart(obj);
-              }}
-            />
-          ))}
+        {renderItems()}
       </div>
     </div>
   )
