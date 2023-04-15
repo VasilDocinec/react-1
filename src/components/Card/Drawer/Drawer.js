@@ -26,7 +26,7 @@ function Drawer({ onClose, onRemoveItem, opened }) {
             width={27}
             height={27}
             onClick={onClose}
-            src="img/button-remove.svg"
+            src="/img/button-remove.svg"
             alt="btn-remove"
           />
         </h2>
@@ -51,7 +51,7 @@ function Drawer({ onClose, onRemoveItem, opened }) {
                     className="removeBtn"
                     width={27}
                     height={27}
-                    src="img/button-remove.svg"
+                    src="/img/button-remove.svg"
                     alt="btn-remove"
                   />
                 </div>
@@ -72,7 +72,7 @@ function Drawer({ onClose, onRemoveItem, opened }) {
               </ul>
               <button onClick={onClickOrder} className="btn-green">
                 Buy this product
-                <img src="img/arrow.svg" alt="arrow" />
+                <img src="/img/arrow.svg" alt="arrow" />
               </button>
             </div>{" "}
           </>
@@ -85,7 +85,7 @@ function Drawer({ onClose, onRemoveItem, opened }) {
                 : "Add items before ordering"
             }
             image={
-              isOrderComplete ? "img/complete-order.jpg" : "img/drawer.png"
+              isOrderComplete ? "/img/complete-order.jpg" : "/img/drawer.png"
             }
           />
         )}

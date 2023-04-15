@@ -9,7 +9,6 @@ function Home({
   favorites,
   isLoading
 }) {
-  console.log(items);
   const renderItems = () => {
 
     const filtredItems = items
@@ -40,12 +39,12 @@ function Home({
             : "All snickers"}
         </h1>
         <div className="search-block">
-          <img src="img/search.svg" alt="search" />
+          <img src="/img/search.svg" alt="search" />
           {searchValue && (
             <img
               className="clear cu-p"
               onClick={() => setSearchValue("")}
-              src="img/button-remove.svg"
+              src="/img/button-remove.svg"
               alt="btn-remove"
             />
           )}
